@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>localStorage__ex</title>
+</head>
+<style>
+ol{
+    font-size: 22px;
+    padding: 30px;
+    margin: 0;
+}
+
+li{
+    padding: 3px;
+}
+.a_left{
+    float: right;
+    text-align: center;
+    text-decoration:none;
+}
+
+.a_left:hover{
+    color: red;
+}
+</style>
+<body>
+    <h1>備忘錄紀錄</h1>
+    <input type="text" class="text" value="" placeholder="請輸入事項">
+    <input type="button" class="send" name="" id="" value="送出">
+
+    <ol class="list">
+
+    </ol>
+
+
+
+    <script>
+    var list = document.querySelector('.list');
+    var senddata = document.querySelector('.send');
+    var data = JSON.parse(localStorage.getItem('listdata')) || [];
+
+
+    senddata.addEventListener('click',adddata);
+    list.addEventListener('click',listdel);
+    updatelist(data);
+
+
+    function adddata(e){
+        e.preventDefault();
+        var text = document.querySelector('.text').value;
+        var todo = {
+            content:text
+        };
+        data.push(todo);
+        updatelist(data);
+        localStorage.setItem('listdata', JSON.stringify(data));
+    }
+
+    function updatelist(items){
+        str = '';
+        var len = items.length;
+        for(var i=0; len>i;i++){
+            str += '<li><span>' + items[i].content + '</span><a class="a_left" href="#" data-index=' + i + '/>刪除</a></li>';
+        }
+
+        list.innerHTML = str;
+    }
+
+    function listdel(e){
+        e.preventDefault();
+        if(e.target.tagName !== 'A'){return};
+        var index = e.target.dataset.index;
+        data.splice(index,1);
+        localStorage.setItem('listdata',JSON.stringify(data));
+        updatelist(data);
+    }
+
+    </script>
+</body>
+</html>

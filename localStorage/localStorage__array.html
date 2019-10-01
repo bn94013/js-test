@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>localStorage__array</title>
+</head>
+<body>
+    
+
+
+
+
+    <script>
+
+    //localStorage 只會保存 string資料
+    //1.透過JSON.stringify 將array轉為string
+    //2.透過JSON.parse 將string轉為array
+
+    var date = [
+        {name:'小明'},
+        ];
+
+    var datestr = JSON.stringify(date);
+    console.log(datestr);
+    localStorage.setItem('testname',datestr);
+
+    var dateary = JSON.parse(datestr);
+    console.log(typeof(dateary));
+    console.log(dateary[0].name);
+
+
+
+    </script>
+</body>
+</html>

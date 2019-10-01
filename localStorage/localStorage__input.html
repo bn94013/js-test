@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>localStorage__input</title>
+</head>
+
+<body>
+    <h2>請輸入姓名</h2>
+    <input type="text" name="" id="" class="textclass">
+
+    <p>
+        <input type="button" value="存進去localStorage" class="btnclass">
+    </p>
+
+    <p>
+        <input type="button" value="呼叫名字" class="callclass">
+    </p>
+
+
+
+    <script>
+        var test = 'wen';
+        localStorage.setItem('myname', test);
+        console.log(localStorage.getItem('myname'));
+
+
+        var btnclass = document.querySelector('.btnclass');
+        var callclass = document.querySelector('.callclass');
+
+        function savename(e) {
+            var textclass = document.querySelector('.textclass').value;
+            // console.log(textclass);
+            localStorage.setItem('myName', textclass);
+        }
+        
+
+        btnclass.addEventListener('click', savename, false);
+        callclass.addEventListener('click', function () {
+            var strcall = localStorage.getItem('myName');
+            alert(strcall);
+        })
+
+
+
+    </script>
+</body>
+
+</html>

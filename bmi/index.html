@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BMI計算</title>
+    <link rel="stylesheet" href="css/bmi.css">
+    <!-- <script src="js/bmi.js"></script> -->
+    <script src="js/bmi2.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <div class="bmi_box">
+        <h1>BMI計算</h1>
+        <P>身高:<input id="height" placeholder="請輸入身高,單位公分"></P>
+        <P>體重:<input id="weight" placeholder="請輸入體重,單位公斤"></P>
+        <input type="button" class="bmi_buttom" name="" value="計算" id="btnCompute">
+        <p><label id="resultBmi" class="orz_size">結果是..<div id="orz"></div></label></p>
+    </div>
+    <div class="bmi_box2">
+        <ul>
+            <li>BMI 計算公式：體重(Kg) ÷ 身高(M)<sup>2</sup></li>
+            <li>判斷範圍：
+                <ul>
+                    <li class="color-0">過輕：BMI ＜ 18.5</li>
+                    <li class="color-1">標準：18.5 ≦ BMI ＜ 24</li>
+                    <li class="color-2">稍重：24 ≦ BMI ＜ 27</li>
+                    <li class="color-3">輕度：27 ≦ BMI ＜ 30</li>
+                    <li class="color-4">中度：30 ≦ BMI ＜ 35</li>
+                    <li class="color-5">重度：BMI ≧ 35</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <a href="#"><p class="help" id="comeon">按一下</p></a>
+
+
+</body>
+
+</html>
